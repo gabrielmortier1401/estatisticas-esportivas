@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id       Int             @id @default(autoincrement())
+  email    String          @unique
+  password String
+  searches SearchHistory[]
+}
+
+model Sport {
+  id      Int      @id @default(autoincrement())
+  name    String
+  teams   Team[]
+  records Record[]
+}
+
+model Team {
+  id      Int      @id @default(autoincrement())
+  name    String
+  sportId Int
+  sport   Sport    @relation(fields: [sportId], references: [id])
+  players Player[]
+}
+
+model Player {
+  id     Int    @id @default(autoincrement())
+  name   String
+  goals  Int?
+  teamId Int
+  team   Team   @relation(fields: [teamId], references: [id])
+}
+
+model Record {
+  id      Int    @id @default(autoincrement())
+  title   String
+  sportId Int
+  sport   Sport  @relation(fields: [sportId], references: [id])
+}
+
+model SearchHistory {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  query     String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}

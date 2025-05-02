@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Estatísticas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topo">
+    <h1 class="logo">Consultar Estatísticas</h1>
+    <nav class="menu-principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="estatisticas.html">Estatísticas</a></li>
+        <li><a href="recordes.html">Recordes</a></li>
+        <li><a href="curiosidades.html">Curiosidades</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="bloco">
+    <h2>Buscar Jogadores</h2>
+    <form id="formBusca">
+      <label for="modalidade">Modalidade:</label>
+      <select id="modalidade">
+        <option value="futebol">Futebol</option>
+        <option value="basquete">Basquete</option>
+      </select>
+
+      <label for="equipe">Equipe:</label>
+      <input type="text" id="equipe" placeholder="Ex: Brasil" />
+
+      <label for="jogador">Jogador:</label>
+      <input type="text" id="jogador" placeholder="Ex: Pelé" />
+
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div id="resultado" class="card-container"></div>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2025 Estatísticas Esportivas</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
